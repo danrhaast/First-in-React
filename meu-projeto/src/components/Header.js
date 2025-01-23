@@ -9,9 +9,9 @@ function Header () {
             </section>
 
             <section>
-                <a href='/'>Login</a>
-                <a href='/'>Cadastro</a>
-                <a href='/'>Sobre Nós</a>
+                <a href='/Login'>Login</a>
+                <a href='/Cadastro'>Cadastro</a>
+                <a href='/SobreNos'>Sobre Nós</a>
             </section>
         </div>
     )

@@ -7,19 +7,16 @@ function Index () {
     return (
         <article className="main">
             <article className="barra">
-                <article>
-                    <a href="/"><img src={perfil}/></a>
-                    <p>Perfil</p>
+                <article className='selections'>
+                    <a href="/Perfil"><img src={perfil}/><p>Perfil</p></a>
                 </article> 
 
-                <article>
-                    <a href="/"><img src={playlist} /></a>
-                    <p>Playlist</p>
+                <article className='selections'>
+                    <a href="/Playlist"><img src={playlist} /><p>Playlist</p></a>
                 </article> 
 
-                <article>
-                    <a href="/"><img src={treino}/></a>
-                    <p>Treino</p>
+                <article className='selections'>
+                    <a href="/Treino"><img src={treino}/><p>Treino</p></a>
                 </article>   
             </article> 
         </article>
