@@ -1,6 +1,7 @@
 import perfil from './public/Component 2.png'
 import playlist from  './public/Component 3.png'
 import treino from './public/Component 4.png'
+import '../style/Menu.css';
 
 
 function Index () {

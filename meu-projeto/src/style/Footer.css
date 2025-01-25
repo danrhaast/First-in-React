@@ -1,0 +1,10 @@
+.sobrenos {
+    width: 40vw;
+    height: 30vh;
+    border-radius: 30px;
+    color: white;
+    align-items: center;
+    display: flex;
+    background-color: #000000;
+    padding: 20px;
+  }
