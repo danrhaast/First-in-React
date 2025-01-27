@@ -1,6 +1,6 @@
-import perfil from './public/Component 2.png'
-import playlist from  './public/Component 3.png'
-import treino from './public/Component 4.png'
+import perfil from '../public/perfil.png';
+import playlist from  '../public/musica.png';
+import treino from '../public/treino.png';
 import '../style/Menu.css';
 
 

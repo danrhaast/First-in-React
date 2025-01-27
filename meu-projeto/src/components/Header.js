@@ -1,4 +1,4 @@
-import logo from './public/logo2(1).png';
+import logo from '../public/logo2(1).png';
 import '../style/Navbar.css';
 
 function Header () {

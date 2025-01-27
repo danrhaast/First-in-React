@@ -10,6 +10,7 @@
   min-height: 100vh;
   font-size: large;
   font-family: "Abel", sans-serif;
+  background: linear-gradient(rgb(4, 4, 79), rgb(97, 97, 252), rgb(184, 201, 252), rgb(97, 97, 252), rgb(4, 4, 79));
 }
 
 .App-logo {
