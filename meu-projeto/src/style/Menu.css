@@ -3,6 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: 1 ease;
   }
   
   .barra {
