@@ -1,5 +1,5 @@
 
-
+import '../style/SobreNos.css';
 
 function SobreNos () {
     return (
