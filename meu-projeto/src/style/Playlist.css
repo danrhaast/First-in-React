@@ -1,0 +1,36 @@
+
+.users {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    width: 30vw;
+    height: 50vh;
+    border-radius: 10px;
+    color: white;
+    background-color: rgb(0, 2, 45);
+    padding: 20px;
+  }
+
+  select {
+    padding: 4px;
+    width: 300px;
+    height: 45px;
+    border-radius: 10px;
+  }
+
+  button {
+    margin: 10px;
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
+    height: 10vh;
+    width: 10vw;
+    background-color: rgb(34, 0, 169);
+    color: white;
+  }
+
+  button:hover {
+    background-color: rgb(0, 47, 255);
+  }
+

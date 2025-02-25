@@ -4,7 +4,7 @@
 function Perfil () {
     return (
         <article className="main">
-            <article className="sobrenos">
+            <article className="user">
                 <p>Texto padrão Perfil.</p>
             </article> 
         </article>

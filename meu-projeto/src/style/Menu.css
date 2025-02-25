@@ -7,7 +7,7 @@
   }
   
   .barra {
-    background-color: #000000;
+    background-color: rgb(0, 2, 45);
     display: flex;
     padding: 15px;
     width: 50vw;

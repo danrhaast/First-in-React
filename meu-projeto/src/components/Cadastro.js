@@ -1,11 +1,11 @@
 
-import '../style/Form.css';
+import '../style/Cadastro.css';
 
 function Cadastro () {
     return (
         <article className="main">
             <section className='form'>
-                <form method="POST">
+                <form>
                     <h2>Cadastro</h2>
                     <div className="input">
                         <label for="name">Nome:</label>
@@ -25,6 +25,10 @@ function Cadastro () {
                     <div className="input">
                         <label for="password">Senha:</label>
                         <input type="password" id="password" name="password" required/>
+                    </div>
+                    <div className="input">
+                        <label for="password">Confirmar Senha:</label>
+                        <input type="password" id="password" name="password"/>
                     </div>
                 </form>
                 </section>
