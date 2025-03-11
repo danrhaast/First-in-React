@@ -30,6 +30,9 @@ function Cadastro () {
                         <label for="password">Confirmar Senha:</label>
                         <input type="password" id="password" name="password"/>
                     </div>
+                    <div className='btn'>
+                            <button type='submit'>Enviar</button>
+                        </div>
                 </form>
                 </section>
         </article>

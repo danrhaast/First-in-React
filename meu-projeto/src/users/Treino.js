@@ -9,7 +9,7 @@ function Treino () {
                     <h1>Treinos:</h1>
                     <p>Escolha uma preferência de treino abaixo</p>
 
-                    <div className='box'>
+                    <div className='input'>
                         <select name='musicGender' id='musicGender'>
                             <option>Musculação</option>
                             <option>Calistenia</option>
@@ -17,9 +17,9 @@ function Treino () {
                         </select>
                     </div>
 
-                <div className='box'>
-                    <button>Enviar</button>
-                </div>
+                    <div className='input'>
+                        <button>Enviar</button>
+                    </div>
 
                 </div>
             </article> 
