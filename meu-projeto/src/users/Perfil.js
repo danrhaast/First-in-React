@@ -4,7 +4,7 @@ import perfillogo from '../assets/perfillogo.png';
 function Perfil () {
     return (
         <article className="main">
-            <article className="user">
+            <article className="userPerfil">
                 <article className="table">
                     <div className="tablet">
                         <>Nome:</>
@@ -25,9 +25,15 @@ function Perfil () {
                     <>Data de Nascimento:</>
                     </div>
                 </article>
-                <article className="perfil">
-                    <img className="fotoPerfil" src={perfillogo}/>
-                </article>
+
+                <div className='box'>   
+                    <article className="perfil">
+                        <img className="fotoPerfil" src={perfillogo}/>
+                    </article>
+                    <div className='box'>
+                            <a>Editar</a>
+                    </div>
+                </div>
             </article> 
         </article>
     )

@@ -4,7 +4,7 @@
 function Treino () {
     return (
         <article className="main">
-            <article className="users">
+            <article className="userTreino">
                 <div className='box'>
                     <h1>Treinos:</h1>
                     <p>Escolha uma preferência de treino abaixo</p>

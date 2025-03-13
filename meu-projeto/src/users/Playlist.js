@@ -5,7 +5,7 @@ function Playlist() {
 
     return (
         <article className="main">
-            <article className="user">
+            <article className="userPlaylist">
                     <div className='box'>
                         <h1>Características Corporais</h1>
                         <div className='input'>
