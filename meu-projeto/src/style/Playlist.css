@@ -93,3 +93,7 @@
     background-color: rgb(0, 47, 255);
   }
 
+
+form-play {
+  display: flex;
+}

@@ -1,0 +1,115 @@
+const express = require("express");
+const mongoose = require("mongoose");
+const cors = require("cors");
+require("dotenv").config();
+
+const app = express();
+app.use(express.json());
+app.use(cors());
+
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+}).then(() => console.log("MongoDB conectado"))
+  .catch(err => console.log(err));
+
+const UserSchema = new mongoose.Schema({
+  name: String,
+  email: { type: String, unique: true },
+  birthdate: String,
+  gender: String,
+  password: String,
+  weight: Number,
+  height: Number,
+  goal: String,
+  musicGenre: String,
+});
+
+const PlaylistSchema = new mongoose.Schema({
+  email: String,
+  tracks: Array,
+});
+
+const User = mongoose.model("User", UserSchema);
+const Playlist = mongoose.model("Playlist", PlaylistSchema);
+
+// CRUD de Usuários
+app.post("/register", async (req, res) => {
+  try {
+    const user = new User(req.body);
+    await user.save();
+    res.status(201).json(user);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
+
+app.post("/login", async (req, res) => {
+  const { email, password } = req.body;
+  const user = await User.findOne({ email, password });
+  if (user) {
+    res.json(user);
+  } else {
+    res.status(401).json({ error: "Credenciais inválidas" });
+  }
+});
+
+app.put("/update-user", async (req, res) => {
+  try {
+    const { email, updates } = req.body;
+    const user = await User.findOneAndUpdate({ email }, updates, { new: true });
+    res.json(user);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
+
+app.delete("/delete-user/:email", async (req, res) => {
+  try {
+    await User.findOneAndDelete({ email: req.params.email });
+    await Playlist.findOneAndDelete({ email: req.params.email });
+    res.json({ message: "Usuário deletado com sucesso" });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
+
+// Geração e recuperação de Playlist
+app.post("/generate-playlist", async (req, res) => {
+  try {
+    const { email, goal, musicGenre } = req.body;
+    let minBPM = 100, maxBPM = 140;
+    if (goal === "emagrecimento") {
+      minBPM = 130; maxBPM = 170;
+    } else if (goal === "hipertrofia") {
+      minBPM = 100; maxBPM = 140;
+    } else if (goal === "resistencia") {
+      minBPM = 150; maxBPM = 190;
+    } else if (goal === "relaxamento") {
+      minBPM = 60; maxBPM = 90;
+    }
+    
+    const url = `https://api.spotify.com/v1/recommendations?seed_genres=${musicGenre}&min_tempo=${minBPM}&max_tempo=${maxBPM}`;
+    const response = await fetch(url, {
+      headers: { Authorization: `Bearer ${process.env.SPOTIFY_TOKEN}` },
+    });
+    const data = await response.json();
+    
+    await Playlist.findOneAndUpdate(
+      { email },
+      { email, tracks: data.tracks },
+      { upsert: true, new: true }
+    );
+    res.json({ message: "Playlist gerada e salva", tracks: data.tracks });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
+
+app.get("/get-playlist/:email", async (req, res) => {
+  const playlist = await Playlist.findOne({ email: req.params.email });
+  res.json(playlist);
+});
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`));
